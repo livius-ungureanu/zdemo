@@ -30,6 +30,7 @@ object Pipeline1 {
           .mapZIOPar(zMyConfig.parallelizationLevel) { customerCsv =>
             processCustomer(customerCsv)
           }
+          .rechunk(zMyConfig.parallelizationLevel)
       }
   }
 
